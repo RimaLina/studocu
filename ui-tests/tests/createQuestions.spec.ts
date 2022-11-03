@@ -10,10 +10,12 @@ import {
 } from "../pages/questionnaire";
 
 test.describe("add questions", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/");
+  });
   test("should have 2 questions in the list when new valid question is added", async ({
     page,
   }) => {
-    await page.goto("/");
     await fillInQuestionAndAnswer(
       page,
       "Is it a new question?",
@@ -24,13 +26,11 @@ test.describe("add questions", () => {
     await checkIfAnswerIsAdded(page, "Yes, this is a new valid question", 1);
   });
   test("should not add a question if answer is missing", async ({ page }) => {
-    await page.goto("/");
     await fillInQuestion(page, "Is it a rethorical question?");
     await submitForm(page);
     await checkQuestionsCount(page, 1);
   });
   test("should not add question if question is missing", async ({ page }) => {
-    await page.goto("/");
     await fillInAnswer(page, "I did not hear the question");
     await submitForm(page);
     await checkQuestionsCount(page, 1);
@@ -38,7 +38,6 @@ test.describe("add questions", () => {
   test("should be able to add identical question to questions list", async ({
     page,
   }) => {
-    await page.goto("/");
     await fillInQuestionAndAnswer(
       page,
       "How to add a question?",
