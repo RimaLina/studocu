@@ -26,7 +26,7 @@ test.describe("add questions", () => {
     await checkIfAnswerIsAdded(page, "Yes, this is a new valid question", 1);
   });
   test("should not add a question if answer is missing", async ({ page }) => {
-    await fillInQuestion(page, "Is it a rethorical question?");
+    await fillInQuestion(page, "Is it a rhetorical question?");
     await submitForm(page);
     await checkQuestionsCount(page, 1);
   });

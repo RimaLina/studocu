@@ -31,7 +31,7 @@ Here is the instructions how to run acceptance tests.
 ## Acceptance tests
 UI automated acceptance tests were written. 
 
-Before automating tests I planned test cases and decided to group tests according the functions in the page: create, delete, sort, show questions and check default state.
+Before automating tests I planned test cases and decided to group tests according to the functions in the page: create, delete, sort, show questions and check default state.
 
 These were my tests scenarios I automated:
 
@@ -41,13 +41,13 @@ These were my tests scenarios I automated:
 
     - check if default question exists and its value
 
-    - check if delault answer exists and its value
+    - check if default answer exists and its value
 
-    - check count of questions in the list and in the sidetext
+    - check count of questions in the list and in the sidebar text
 
 2. create questions
 
-    - ckeck if count of questions is increased and question appears in the list if **valid** question is added
+    - check if count of questions is increased and question appears in the list if **valid** question is added
     - check if question and answer input fields are required 
     - check that identical question can be added
     
@@ -73,17 +73,15 @@ These were my tests scenarios I automated:
 
     - check if questions are sorted correctly
 
-    For this test case I use randomly generated strings for questions and answers which are sorted and placed in separate expected data file. Before I create these question-answer pairs in web page, I suffle the pairs and the do sort action, then compare actual and expected resuts. Also, clarfied that if questions are the same, they are not sorder according to their answers alfabetically. 
+    For this test case I use randomly generated strings for questions and answers which are sorted and placed in separate expected data file. Before I create these question-answer pairs in web page, I shuffle the pairs and the do sort action, then compare actual and expected results. Also, clarified that if questions are the same, they are not sorted according to their answers alphabetically. 
 
 **Note:** another kind of acceptance tests such as unit, component, integration, API tests could not be written for this web page.
 
 ## CI
-It took an extra few minutes to setup CI using Github Actions, results can be seen here https://github.com/RimaLina/studocu/actions 
+It took an extra few minutes to setup CI using Github Actions, results and reports can be seen here https://github.com/RimaLina/studocu/actions 
 
 ![UI tests](https://github.com/RimaLina/studocu/actions/workflows/playwright.yml/badge.svg)
 
 To make CI work I had to deploy frontend page using AWS S3 http://studocu-qa-deployment.s3-website.eu-central-1.amazonaws.com
 
-Tests are configured to run on Chrome, Firefox and Safari browsers.
-
-
+Tests are configured to run on Chrome, Firefox and Safari browsers. 
